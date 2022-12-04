@@ -15,6 +15,33 @@ namespace RADFinal_Matthew_Marzec
     {
 
         /// <summary>
+        /// prodNameTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox prodNameTxt;
+
+        /// <summary>
+        /// InventorySearchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button InventorySearchBtn;
+
+        /// <summary>
+        /// LowInvCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox LowInvCheckBox;
+
+        /// <summary>
         /// pnlResults control.
         /// </summary>
         /// <remarks>

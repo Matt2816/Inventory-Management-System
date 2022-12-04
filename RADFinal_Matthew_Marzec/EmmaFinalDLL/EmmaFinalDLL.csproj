@@ -56,10 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmmasDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmmasDataSet.xsd</DependentUpon>
+    <Compile Include="InventoryDataSet.cs">
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="InventoryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,17 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="EmmasDataSet.xsc">
-      <DependentUpon>EmmasDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EmmasDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EmmasDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EmmasDataSet.xss">
-      <DependentUpon>EmmasDataSet.xsd</DependentUpon>
-    </None>
     <None Include="InventoryDataSet.xsc">
       <DependentUpon>InventoryDataSet.xsd</DependentUpon>
     </None>

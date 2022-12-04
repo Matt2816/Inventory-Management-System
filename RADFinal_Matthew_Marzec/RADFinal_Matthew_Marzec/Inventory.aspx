@@ -4,7 +4,11 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         <%: Title %>.</h2>
-    <p>&nbsp;</p>
+    <p>
+        <asp:TextBox ID="prodNameTxt" runat="server"></asp:TextBox>
+        <asp:Button ID="InventorySearchBtn" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" />
+        <asp:CheckBox ID="LowInvCheckBox" runat="server" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock" />
+    </p>
     <asp:Panel ID="pnlResults" runat="server">
             <div class="col-xs-12">
                 <div class="form-group">
@@ -13,6 +17,7 @@
             </div>
             <div class="col-xs-12">
                 <asp:Table ID="tblInventory" runat="server" CssClass="table table-bordered table-hover" EnableViewState="True">
+
                     <asp:TableRow ID="tblTableHeadings" runat="server" Visible="false">
                         <asp:TableCell runat="server" Font-Bold="True">Inventory ID</asp:TableCell>
                         <asp:TableCell runat="server" Font-Bold="True" Font-Italic="False">Inventory Qty</asp:TableCell>

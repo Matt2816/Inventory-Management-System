@@ -8,31 +8,21 @@
             <div class="col-sm-5">
                 <h1>Login</h1>
                 <p>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="ObjectDataSource1">
-                        <Columns>
-                            <asp:CommandField ShowEditButton="True" />
-                            <asp:BoundField DataField="invQuantity" HeaderText="invQuantity" SortExpression="invQuantity" />
-                            <asp:BoundField DataField="invSize" HeaderText="invSize" SortExpression="invSize" />
-                            <asp:BoundField DataField="invMeasure" HeaderText="invMeasure" SortExpression="invMeasure" />
-                            <asp:BoundField DataField="invPrice" HeaderText="invPrice" SortExpression="invPrice" />
-                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                        </Columns>
-                    </asp:GridView>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.InventoryDataSetTableAdapters.EditInventoryTableAdapter" UpdateMethod="GetData">
-                        <SelectParameters>
-                            <asp:SessionParameter DefaultValue="1" Name="ProductID" SessionField="ID" Type="Int32" />
-                        </SelectParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="ProductID" Type="Int32" />
-                        </UpdateParameters>
-                    </asp:ObjectDataSource>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    <asp:Button ID="UpdateRecord_Btn" runat="server" OnClick="UpdateRecord_Btn_Click" Text="Button" />
                 </p>
+                <p>
+                    &nbsp;</p>
 
             </div>
 
             <div class="col-sm-5">
                 <h1>Register</h1>
                 </div>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
     </div>
    
