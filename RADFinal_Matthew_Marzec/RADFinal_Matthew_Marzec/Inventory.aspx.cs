@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,14 +16,9 @@ namespace RADFinal_Matthew_Marzec
     public partial class Inventory : System.Web.UI.Page
     {
         private static InventoryDataSet dsInventory;
-
-        // Declare a reference to the rows of search records
-        private static DataRow[] InventoryData;
-        private int tblCount = 0;
      
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             // Initialize the dataset
             dsInventory = new InventoryDataSet();
 
@@ -40,8 +37,6 @@ namespace RADFinal_Matthew_Marzec
                           orderby inventory.prodName
                           select inventory;
             DisplayTable(search);
-           
-
         }
        
         public void DisplayTable(IEnumerable<DataRow> search)
@@ -69,24 +64,21 @@ namespace RADFinal_Matthew_Marzec
 
                 HyperLink editLink = new HyperLink();
                 editLink.NavigateUrl = "EditInventory?ID=" + row.ItemArray[0].ToString() + "";
-                editLink.Text = "Edit"; 
-              
+                editLink.Text = "Edit";
 
-                // Add data to each table cell
+                HyperLink deleteLink = new HyperLink();
+                deleteLink.NavigateUrl = "DeleteInventory?ID=" + row.ItemArray[0].ToString() + "";
+                deleteLink.Text = "Delete";
+
+
                 id.Text = row.ItemArray[0].ToString();
                 invQty.Text = row.ItemArray[1].ToString();
                 invPrice.Text = "$"+row.ItemArray[4].ToString();
                 prodName.Text = row.ItemArray[6].ToString();
                 prodBrand.Text = row.ItemArray[7].ToString();
                 edit.Controls.Add(editLink);
-                //edit.Controls.Add(editLink);
-                delete.Text = "Delete";
+                delete.Controls.Add(deleteLink);
 
-                 
-
-
-
-                // Add each table cell to the table row
                 tblRow.Cells.Add(id);
                 tblRow.Cells.Add(invQty);
                 tblRow.Cells.Add(invPrice);
@@ -94,7 +86,6 @@ namespace RADFinal_Matthew_Marzec
                 tblRow.Cells.Add(prodBrand);
                 tblRow.Cells.Add(edit);
                 tblRow.Cells.Add(delete);
-                // Add the row to the table
                 this.tblInventory.Rows.Add(tblRow);
             }
         }

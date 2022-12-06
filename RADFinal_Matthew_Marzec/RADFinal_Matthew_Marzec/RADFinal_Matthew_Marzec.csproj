@@ -157,6 +157,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteInventory.aspx" />
     <Content Include="EditInventory.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteInventory.aspx.cs">
+      <DependentUpon>DeleteInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteInventory.aspx.designer.cs">
+      <DependentUpon>DeleteInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditInventory.aspx.cs">
       <DependentUpon>EditInventory.aspx</DependentUpon>

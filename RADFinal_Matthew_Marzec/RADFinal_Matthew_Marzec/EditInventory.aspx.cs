@@ -10,82 +10,78 @@ using EmmaFinalDLL.InventoryDataSetTableAdapters;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Reflection.Emit;
+using System.Diagnostics;
 
 namespace RADFinal_Matthew_Marzec
 {
     public partial class EditInventory : System.Web.UI.Page
     {
-        private static InventoryDataSet dsEditInventory;
         private static InventoryDataSet dsInventory;
-
-        // Declare a reference to the rows of search records
-        private static DataRow EditInventoryData;
         private static DataRow[] InventoryData;
-
+        public int ID = 0;
         static EditInventory()
         {
-            // Initialize the dataset
-            dsEditInventory = new InventoryDataSet();
             dsInventory = new InventoryDataSet();
-
-            // Initialize the table adapters
             EditInventoryTableAdapter daEditInventory = new EditInventoryTableAdapter();
             InventoryTableAdapter daInventory = new InventoryTableAdapter();
 
             try
             {
-                // Fill the data adapter with data from the dataset
                 daInventory.Fill(dsInventory.Inventory);
-                daEditInventory.Update(EditInventoryData);
-
             }
             catch { }
         }
+        void LoadMyData()
+        {
+
+            ID = Convert.ToInt32(Request.QueryString["ID"]);
+            Session["ID"] = ID;
+            var record = dsInventory.Inventory.Where(k => k.id == ID).FirstOrDefault();
+            var productRecord = dsInventory.Inventory.Where(k => k.id == ID).FirstOrDefault();
+
+            if (record != null)
+            {
+                txtProdID.Text = record.productID.ToString();
+                txtInvQty.Text = record.invQuantity.ToString();
+                txtInvSize.Text = record.invSize.ToString();
+                txtInvMeasure.Text = record.invMeasure.ToString();
+                txtInvPrice.Text = record.invPrice.ToString();
+                txtProdName.Text = record.prodName;
+                txtProdDesc.Text = "test";
+                txtProdBrand.Text = record.prodBrand;
+            }
+            else
+            {
+                Response.Redirect("~/Inventory.aspx");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //int id = Convert.ToInt32(Request.QueryString["ID"]);
-            //Session["ID"] = id;
-            
-            //var x = dsInventory.Inventory.Where(k => k.id == id).FirstOrDefault();
-          
+            if (!IsPostBack)
+            {
+                LoadMyData();
+            }
         }
 
         protected void UpdateRecord_Btn_Click(object sender, EventArgs e)
         {
-            //SqlCommand cmd = new SqlCommand("UPDATE Inventory ('invQuantity', 'invSize', 'invMeasure','invPrice','productID') " +
-            //    "VALUES ('@invQuantity', '@invSize', '@invMeasure','@invPrice','@productID') WHERE productID ='@productID'",
-            //    DBConnect.con);
-
-            SqlCommand cmdInventory = new SqlCommand("UPDATE Inventory SET invQuantity = @invQuantity, invSize = @invSize, invMeasure = @invMeasure, invPrice = @invPrice, productID = @productID WHERE productID = @productID",
-               DBConnect.con);
-            SqlCommand cmdProduct = new SqlCommand("UPDATE Product SET prodName = @prodName, prodDescription = @prodDescription, prodBrand = @prodBrand WHERE id = @productID",
-               DBConnect.con);
-
-            int id = Convert.ToInt32(Request.QueryString["ID"]);
-            Session["ID"] = id;
-           
-            var x = dsInventory.Inventory.Where(k => k.id == id).FirstOrDefault();
-            cmdInventory.Connection = DBConnect.con;
+            ID = Convert.ToInt32(Request.QueryString["ID"]);
+            Session["ID"] = ID;
             try
             {
-                cmdInventory.Parameters.AddWithValue("@invQuantity", 5544);
-                cmdInventory.Parameters.AddWithValue("@invSize", 12);
-                cmdInventory.Parameters.AddWithValue("@invMeasure", "FL");
-                cmdInventory.Parameters.AddWithValue("@invPrice", 12.99);
-                cmdInventory.Parameters.AddWithValue("@productID", x.productID);
+                EmmaFinalDLL.Inventory inventory = new EmmaFinalDLL.Inventory(ID, Convert.ToInt32(txtInvQty.Text), Convert.ToDecimal(txtInvSize.Text), txtInvMeasure.Text, Convert.ToDecimal(txtInvPrice.Text), ID);
+                inventory.UpdateInventory(out string status);
 
-                cmdProduct.Parameters.AddWithValue("@prodName", "5W30");
-                cmdProduct.Parameters.AddWithValue("@prodDescription", "Test");
-                cmdProduct.Parameters.AddWithValue("@prodBrand", "Honda");
-                cmdProduct.Parameters.AddWithValue("@productID", x.productID);
-
-                DBConnect.con.Open();
-                cmdInventory.ExecuteNonQuery();
-                cmdProduct.ExecuteNonQuery();
-                DBConnect.con.Close();
+                EmmaFinalDLL.Product product = new EmmaFinalDLL.Product(ID,txtProdName.Text, txtProdDesc.Text, txtProdBrand.Text);
+                product.UpdateProduct(out string productStatus);
+                txtProdDesc.Text= status;
+                successPanel.Visible = true;
             }
-            catch
+            catch(Exception ex)
             {
+                txtProdBrand.Text = ex.Message;
+                failedPanel.Visible = true;
 
             }
         }
