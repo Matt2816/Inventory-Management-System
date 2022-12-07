@@ -11,21 +11,29 @@ namespace EmmaFinalDLL
 {
     public class Inventory
     {
-        public int ID { get; }
-        public int invQuantity { get; set; }
-        public decimal invSize { get; set; }
-        public string invMeasure { get; set; }
-        public decimal invPrice { get; set; }
-        public int productID { get; set; }
+        private int ID { get; }
+        private int invQuantity { get; set; }
+        private decimal invSize { get; set; }
+        private string invMeasure { get; set; }
+        private decimal invPrice { get; set; }
+        private int productID { get; set; }
 
         public Inventory(int id, int qty, decimal size, string measure, decimal price, int productId)
         {
             this.ID = id;
-            this.invQuantity = qty;
-            this.invSize = size;
-            this.invMeasure = measure;
-            this.invPrice = price;
-            this.productID = productId;
+            this.InvQty = qty;
+            this.InvSize = size;
+            this.InvMeasure = measure;
+            this.InvPrice = price;
+            this.ProductID = productId;
+        }
+        public Inventory(int qty, decimal size, string measure, decimal price, int productId)
+        {
+            this.InvQty = qty;
+            this.InvSize = size;
+            this.InvMeasure = measure;
+            this.InvPrice = price;
+            this.ProductID = productId;
         }
 
         public Inventory()
@@ -33,8 +41,63 @@ namespace EmmaFinalDLL
            
         }
 
+        public int InvQty
+        {
+            get { return this.invQuantity; }
+            set
+            {
+                if (value > 0 || value <= 10000)
+                {
+                    this.invQuantity = value;
+                }
+            }
+        }
+        public decimal InvSize
+        {
+            get { return this.invSize; }
+            set
+            {
+                if (value > 0 || value <= 10000)
+                {
+                    this.invSize = value;
+                }
+            }
+        }
 
+        public string InvMeasure
+        {
+            get { return this.invMeasure; }
+            set
+            {
+                if (value.Length > 0 || value.Length <= 20)
+                {
+                    this.invMeasure = value;
+                }
+            }
+        }
+        public decimal InvPrice
+        {
+            get { return this.invPrice; }
+            set
+            {
+                if (value > 0 || value <= 10000)
+                {
+                    this.invPrice = value;
+                }
+            }
+        }
 
+        public int ProductID
+        {
+            get { return this.productID; }
+            set
+            {
+                if (value > 0)
+                {
+                    this.productID = value;
+                }
+            }
+        }
         public void UpdateInventory(out string status)
         {
 

@@ -11,16 +11,25 @@ namespace RADFinal_Matthew_Marzec
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
         }
 
         protected void AddRecord_Btn_Click(object sender, EventArgs e)
         {
-            EmmaFinalDLL.Product newProduct = new EmmaFinalDLL.Product(txtProdName.Text, txtProdDesc.Text, txtProdBrand.Text);
-            newProduct.AddProduct(out string status);
-            //txtInvQty.Text = Convert.ToString(id);
-            txtInvPrice.Text = status;
+            try
+            {
+                EmmaFinalDLL.Product newProduct = new EmmaFinalDLL.Product(txtProdName.Text, txtProdDesc.Text, txtProdBrand.Text);
+                newProduct.AddProduct(out string status);
+
+                EmmaFinalDLL.Inventory newInventory = new EmmaFinalDLL.Inventory(Convert.ToInt32(txtInvQty.Text), Convert.ToDecimal(txtInvSize.Text), txtInvMeasure.Text, Convert.ToDecimal(txtInvPrice.Text), Convert.ToInt16(status));
+                newInventory.AddInventory(out string n);
+                successPanel.Visible = true;
+            }
+            catch
+            {
+                failedPanel.Visible = true;
+            }
+           
         }
     }
 }

@@ -12,7 +12,7 @@ namespace RADFinal_Matthew_Marzec
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
         }
 
         protected void DeleteRecord_Btn_Click(object sender, EventArgs e)

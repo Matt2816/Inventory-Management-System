@@ -58,6 +58,7 @@ namespace RADFinal_Matthew_Marzec
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
             if (!IsPostBack)
             {
                 LoadMyData();

@@ -10,24 +10,57 @@ namespace EmmaFinalDLL
 {
     public class Product
     {
-        public int ID { get; }
-        public string prodName { get; set; }
-        public string prodDesc { get; set; }
-        public string prodBrand { get; set; }
+        private int ID { get; }
+        private string prodName { get; set; }
+        private string prodDesc { get; set; }
+        private string prodBrand { get; set; }
      
 
         public Product(int id,string name,string desc, string brand )
         {
             this.ID = id;
-            this.prodName = name;
-            this.prodDesc = desc;
-            this.prodBrand = brand;
+            this.ProductName = name;
+            this.ProductDesc = desc;
+            this.ProductBrand = brand;
         }
         public Product(string name, string desc, string brand)
         {
-            this.prodName = name;
-            this.prodDesc = desc;
-            this.prodBrand = brand;
+            this.ProductName = name;
+            this.ProductDesc = desc;
+            this.ProductBrand = brand;
+        }
+
+        public string ProductName
+        {
+            get { return this.prodName; }
+            set {
+                if(value.Length > 0 || value.Length <= 50)
+                {
+                    this.prodName =value;
+                }
+            }
+        }
+        public string ProductDesc
+        {
+            get { return this.prodDesc; }
+            set
+            {
+                if (value.Length > 0 || value.Length <= 100)
+                {
+                    this.prodDesc = value;
+                }
+            }
+        }
+        public string ProductBrand
+        {
+            get { return this.prodBrand; }
+            set
+            {
+                if (value.Length > 0 || value.Length <= 50)
+                {
+                    this.prodBrand = value;
+                }
+            }
         }
 
         public void UpdateProduct(out string status)
@@ -54,7 +87,6 @@ namespace EmmaFinalDLL
             }
             finally
             {
-                //make sure the connection is closed
                 if (DBConnect.con.State == System.Data.ConnectionState.Open)
                     DBConnect.con.Close();
             }
@@ -74,8 +106,6 @@ namespace EmmaFinalDLL
 
                 DBConnect.con.Open();
                 status = Convert.ToString(cmdProduct.ExecuteScalar());
-                //cmdProduct.ExecuteNonQuery();
-
                 DBConnect.con.Close();
             }
             catch (Exception ex)
@@ -84,7 +114,6 @@ namespace EmmaFinalDLL
             }
             finally
             {
-                //make sure the connection is closed
                 if (DBConnect.con.State == System.Data.ConnectionState.Open)
                     DBConnect.con.Close();
             }

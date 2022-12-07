@@ -19,20 +19,17 @@ namespace RADFinal_Matthew_Marzec
      
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Initialize the dataset
             dsInventory = new InventoryDataSet();
 
-            // Initialize the table adapters
             InventoryTableAdapter daInventory = new InventoryTableAdapter();
 
             try
             {
-                // Fill the data adapter with data from the dataset
                 daInventory.Fill(dsInventory.Inventory);
             }
             catch { }
             
-            //if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
             var search = from inventory in dsInventory.Inventory
                           orderby inventory.prodName
                           select inventory;
@@ -50,9 +47,7 @@ namespace RADFinal_Matthew_Marzec
             
             foreach (DataRow row in search)
             {
-                // Declare table rows to hold table
                 TableRow tblRow = new TableRow();
-                // Declare table cells that will hold all cell data
                 TableCell id = new TableCell();
                 TableCell invQty = new TableCell();
                 TableCell invPrice = new TableCell();

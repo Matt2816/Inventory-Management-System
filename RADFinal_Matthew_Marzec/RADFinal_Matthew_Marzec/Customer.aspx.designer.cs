@@ -11,7 +11,7 @@ namespace RADFinal_Matthew_Marzec
 {
 
 
-    public partial class AddInventory
+    public partial class Customer
     {
 
         /// <summary>
@@ -33,75 +33,39 @@ namespace RADFinal_Matthew_Marzec
         protected global::System.Web.UI.WebControls.Panel failedPanel;
 
         /// <summary>
-        /// txtProdName control.
+        /// txtFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProdName;
+        protected global::System.Web.UI.WebControls.TextBox txtFilter;
 
         /// <summary>
-        /// txtProdDesc control.
+        /// btnFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProdDesc;
+        protected global::System.Web.UI.WebControls.Button btnFilter;
 
         /// <summary>
-        /// txtProdBrand control.
+        /// CustomerGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProdBrand;
+        protected global::System.Web.UI.WebControls.GridView CustomerGV;
 
         /// <summary>
-        /// txtInvQty control.
+        /// CustomerODS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInvQty;
-
-        /// <summary>
-        /// txtInvSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInvSize;
-
-        /// <summary>
-        /// txtInvMeasure control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInvMeasure;
-
-        /// <summary>
-        /// txtInvPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInvPrice;
-
-        /// <summary>
-        /// AddRecord_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddRecord_Btn;
+        protected global::System.Web.UI.WebControls.ObjectDataSource CustomerODS;
     }
 }

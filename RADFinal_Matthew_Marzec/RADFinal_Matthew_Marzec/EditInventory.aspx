@@ -20,6 +20,30 @@
             </div>
         </asp:Panel>
         <div class="row">
+                  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8">
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('#<%=UpdateRecord_Btn.ClientID%>').click(function (e) {
+                        var isValid = true;
+                        $('input[type="text"]').each(function () {
+                            if ($.trim($(this).val()) == '') {
+                                isValid = false;
+                                $(this).css({
+                                    "border": "3px solid red"
+                                });
+                            }
+                            else {
+                                $(this).css({
+                                    "border": "3px solid green"
+                                });
+                            }
+                        });
+                        if (isValid == false)
+                            e.preventDefault();
+                    });
+                });
+            </script>
             <div class="col-sm-4">
                 <div class="form-outline">
                     <label class="form-label" for="prodID">Product ID</label>
@@ -49,6 +73,6 @@
                 </div>
             </div>
         </div>
-        <asp:Button ID="UpdateRecord_Btn" runat="server" OnClick="UpdateRecord_Btn_Click" Text="Update Record" Class="btn btn-primary" />
+        <asp:Button ID="UpdateRecord_Btn" runat="server" ClientIDMode="Static" OnClick="UpdateRecord_Btn_Click" Text="Update Record" Class="btn btn-primary" />
     </div>
 </asp:Content>
