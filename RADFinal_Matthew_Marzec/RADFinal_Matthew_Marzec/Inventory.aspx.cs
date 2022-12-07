@@ -114,5 +114,10 @@ namespace RADFinal_Matthew_Marzec
             }
            
         }
+
+        protected void AddInventoryBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddInventory.aspx");
+        }
     }
 }

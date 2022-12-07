@@ -29,9 +29,7 @@ namespace RADFinal_Matthew_Marzec
                 Label1.Text = "Username or password is incorrect.";
             }
             else
-            {
-              
-                
+            {              
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                 authenticationManager.SignIn(userIdentity);

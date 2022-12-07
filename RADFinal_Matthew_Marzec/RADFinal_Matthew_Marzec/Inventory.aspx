@@ -4,6 +4,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         <%: Title %>.</h2>
+        <asp:Button ID="AddInventoryBtn" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" />
     <p>
         <asp:TextBox ID="prodNameTxt" runat="server"></asp:TextBox>
         <asp:Button ID="InventorySearchBtn" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" />

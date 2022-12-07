@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace EmmaFinalDLL
             this.prodDesc = desc;
             this.prodBrand = brand;
         }
+        public Product(string name, string desc, string brand)
+        {
+            this.prodName = name;
+            this.prodDesc = desc;
+            this.prodBrand = brand;
+        }
 
         public void UpdateProduct(out string status)
         {
@@ -40,6 +47,36 @@ namespace EmmaFinalDLL
                 cmdProduct.ExecuteNonQuery();
                 DBConnect.con.Close();
                 status = "Record Updated";
+            }
+            catch (Exception ex)
+            {
+                status = ex.Message;
+            }
+            finally
+            {
+                //make sure the connection is closed
+                if (DBConnect.con.State == System.Data.ConnectionState.Open)
+                    DBConnect.con.Close();
+            }
+        }
+        public void AddProduct(out string status)
+        {
+           
+            SqlCommand cmdProduct= new SqlCommand("INSERT INTO Product (prodName,prodDescription,prodBrand) OUTPUT Inserted.id VALUES(@prodName, @prodDescription, @prodBrand);", DBConnect.con);
+
+            status = "";
+            cmdProduct.Connection = DBConnect.con;
+            try
+            {
+                cmdProduct.Parameters.AddWithValue("@prodName", SqlDbType.VarChar).Value = prodName;
+                cmdProduct.Parameters.AddWithValue("@prodDescription", SqlDbType.VarChar).Value = prodDesc;
+                cmdProduct.Parameters.AddWithValue("@prodBrand", SqlDbType.VarChar).Value = prodBrand;
+
+                DBConnect.con.Open();
+                status = Convert.ToString(cmdProduct.ExecuteScalar());
+                //cmdProduct.ExecuteNonQuery();
+
+                DBConnect.con.Close();
             }
             catch (Exception ex)
             {

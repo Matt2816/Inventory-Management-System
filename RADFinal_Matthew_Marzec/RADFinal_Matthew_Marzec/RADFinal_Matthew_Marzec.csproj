@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddInventory.aspx" />
     <Content Include="App_Data\Emmas.mdf" />
     <Content Include="App_Data\Emmas_log.ldf">
       <DependentUpon>Emmas.mdf</DependentUpon>
@@ -207,6 +208,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddInventory.aspx.cs">
+      <DependentUpon>AddInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInventory.aspx.designer.cs">
+      <DependentUpon>AddInventory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

@@ -11,79 +11,97 @@ namespace RADFinal_Matthew_Marzec
 {
 
 
-    public partial class Inventory
+    public partial class AddInventory
     {
 
         /// <summary>
-        /// AddInventoryBtn control.
+        /// successPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddInventoryBtn;
+        protected global::System.Web.UI.WebControls.Panel successPanel;
 
         /// <summary>
-        /// prodNameTxt control.
+        /// failedPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prodNameTxt;
+        protected global::System.Web.UI.WebControls.Panel failedPanel;
 
         /// <summary>
-        /// InventorySearchBtn control.
+        /// txtInvQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InventorySearchBtn;
+        protected global::System.Web.UI.WebControls.TextBox txtInvQty;
 
         /// <summary>
-        /// LowInvCheckBox control.
+        /// txtInvSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox LowInvCheckBox;
+        protected global::System.Web.UI.WebControls.TextBox txtInvSize;
 
         /// <summary>
-        /// pnlResults control.
+        /// txtInvMeasure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlResults;
+        protected global::System.Web.UI.WebControls.TextBox txtInvMeasure;
 
         /// <summary>
-        /// lblInventoryResults control.
+        /// txtInvPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInventoryResults;
+        protected global::System.Web.UI.WebControls.TextBox txtInvPrice;
 
         /// <summary>
-        /// tblInventory control.
+        /// txtProdName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblInventory;
+        protected global::System.Web.UI.WebControls.TextBox txtProdName;
 
         /// <summary>
-        /// tblTableHeadings control.
+        /// txtProdDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow tblTableHeadings;
+        protected global::System.Web.UI.WebControls.TextBox txtProdDesc;
+
+        /// <summary>
+        /// txtProdBrand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProdBrand;
+
+        /// <summary>
+        /// AddRecord_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddRecord_Btn;
     }
 }

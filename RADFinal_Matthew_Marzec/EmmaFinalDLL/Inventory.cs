@@ -86,5 +86,33 @@ namespace EmmaFinalDLL
                     DBConnect.con.Close();
             }
         }
+
+        public void AddInventory(out string status)
+        {
+            status = "";
+            SqlCommand cmdInventory = new SqlCommand("INSERT INTO Inventory (invQuantity,invSize,invMeasure,invPrice,productID) " +
+                "VALUES(@invQuantity, @invSize, @invMeasure, @invPrice, @productID)", DBConnect.con);
+            cmdInventory.Connection = DBConnect.con;
+            try
+            {
+                cmdInventory.Parameters.AddWithValue("@invQuantity", SqlDbType.Int).Value = invQuantity;
+                cmdInventory.Parameters.AddWithValue("@invSize", SqlDbType.Decimal).Value = invSize;
+                cmdInventory.Parameters.AddWithValue("@invMeasure", SqlDbType.VarChar).Value = invMeasure;
+                cmdInventory.Parameters.AddWithValue("@invPrice", SqlDbType.Decimal).Value = invPrice;
+                cmdInventory.Parameters.AddWithValue("@productID", SqlDbType.Int).Value = productID;
+                DBConnect.con.Open();
+                cmdInventory.ExecuteNonQuery();
+                DBConnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                status = ex.Message;
+            }
+            finally
+            {
+                if (DBConnect.con.State == System.Data.ConnectionState.Open)
+                    DBConnect.con.Close();
+            }
+        }
     }
 }
