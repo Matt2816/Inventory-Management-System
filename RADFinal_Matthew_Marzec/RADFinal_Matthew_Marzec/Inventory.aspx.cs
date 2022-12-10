@@ -87,12 +87,15 @@ namespace RADFinal_Matthew_Marzec
 
         protected void InventorySearchBtn_Click(object sender, EventArgs e)
         {
-            var search = from inventory in dsInventory.Inventory
-                         where inventory.prodName.ToUpper().Contains(prodNameTxt.Text.ToUpper())
-                         orderby inventory.prodName
-                         select inventory;
-            this.tblInventory.Rows.Clear();
-            DisplayTable(search);
+            if(prodNameTxt.Text.Length > 0)
+            {
+                var search = from inventory in dsInventory.Inventory
+                             where inventory.prodName.ToUpper().Contains(prodNameTxt.Text.ToUpper())
+                             orderby inventory.prodName
+                             select inventory;
+                this.tblInventory.Rows.Clear();
+                DisplayTable(search);
+            }
         }
 
         protected void LowInvCheckBox_CheckedChanged(object sender, EventArgs e)

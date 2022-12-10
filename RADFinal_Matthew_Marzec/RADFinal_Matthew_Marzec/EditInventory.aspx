@@ -9,7 +9,7 @@
             <div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Record successfully updated.</strong> <a href="Inventory.aspx" class="alert-link">Return to inventory</a>.
-            </div>
+                </div>
         </asp:Panel>
 
         <asp:Panel ID="failedPanel" Visible="false" runat="server">
@@ -73,6 +73,6 @@
                 </div>
             </div>
         </div>
-        <asp:Button ID="UpdateRecord_Btn" runat="server" ClientIDMode="Static" OnClick="UpdateRecord_Btn_Click" Text="Update Record" Class="btn btn-primary" />
+        <asp:Button ID="UpdateRecord_Btn" runat="server" ClientIDMode="Static" OnClick="UpdateRecord_Btn_Click" Text="Update Record" class="btn btn-info btn-sm" />
     </div>
 </asp:Content>

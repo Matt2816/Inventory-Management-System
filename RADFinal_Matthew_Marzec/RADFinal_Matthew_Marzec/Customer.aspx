@@ -4,8 +4,7 @@
     <h2><%: Title %>.</h2>
     <p>&nbsp;</p>
     <div class="container">
-       
-        <asp:Panel ID="successPanel" Visible="false" runat="server">
+        <asp:Panel ID="successPanel" Visible="false"  runat="server">
 
             <div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -19,23 +18,23 @@
                 <strong>Failed to insert record. Please try again or contact your system admin</strong>
             </div>
         </asp:Panel>
-
-              <asp:textbox id="txtFilter" runat="server"/>
-              <p><asp:Button id="btnFilter" runat="server" text="Search" /></p>
-                <asp:GridView ID="CustomerGV" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="CustomerODS" Width="1858px">
+            <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label><br />
+        <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server" />
+              <asp:Button id="btnFilter" class="btn btn-info btn-sm" runat="server" text="Search" />
+                <asp:GridView ID="CustomerGV" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="CustomerODS" Width="1858px" OnRowUpdated="CustomerGV_RowUpdated">
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                        <asp:BoundField DataField="custFirst" HeaderText="custFirst" SortExpression="custFirst" />
-                        <asp:BoundField DataField="custLast" HeaderText="custLast" SortExpression="custLast" />
-                        <asp:BoundField DataField="custPhone" HeaderText="custPhone" SortExpression="custPhone" />
-                        <asp:BoundField DataField="custAddress" HeaderText="custAddress" SortExpression="custAddress" />
-                        <asp:BoundField DataField="custCity" HeaderText="custCity" SortExpression="custCity" />
-                        <asp:BoundField DataField="custPostal" HeaderText="custPostal" SortExpression="custPostal" />
-                        <asp:BoundField DataField="custEmail" HeaderText="custEmail" SortExpression="custEmail" />
+                        <asp:CommandField ShowEditButton="True" />
+                        <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
+                        <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
+                        <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
+                        <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
+                        <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
+                        <asp:BoundField DataField="custPostal" HeaderText="Postal Code" SortExpression="custPostal" />
+                        <asp:BoundField DataField="custEmail" HeaderText="Email" SortExpression="custEmail" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="CustomerODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update" DeleteMethod="Delete" InsertMethod="Insert"
-                    filterexpression="(custFirst LIKE'*{0}*' OR '{0}' LIKE '')" OnFiltering="CustomerODS_Filtering">
+                <asp:ObjectDataSource ID="CustomerODS" runat="server"  OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update" DeleteMethod="Delete" InsertMethod="Insert"
+                    filterexpression="(custFirst LIKE'*{0}*' OR '{0}' LIKE '' OR custLast LIKE'*{0}*' OR custEmail LIKE'*{0}*' OR custPhone LIKE'*{0}*')" OnFiltering="CustomerODS_Filtering">
                     <FilterParameters>
                        <asp:ControlParameter ConvertEmptyStringToNull="false" ControlID="txtFilter" PropertyName="Text" />
                     </FilterParameters>
@@ -51,7 +50,9 @@
                         <asp:Parameter Name="custPostal" Type="String" />
                         <asp:Parameter Name="custEmail" Type="String" />
                     </InsertParameters>
+
                     <UpdateParameters>
+            
                         <asp:Parameter Name="custFirst" Type="String" />
                         <asp:Parameter Name="custLast" Type="String" />
                         <asp:Parameter Name="custPhone" Type="String" />
@@ -61,6 +62,30 @@
                         <asp:Parameter Name="custEmail" Type="String" />
                         <asp:Parameter Name="Original_id" Type="Int32" />
                     </UpdateParameters>
-                </asp:ObjectDataSource>        
+                </asp:ObjectDataSource>  
+                          <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8">
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('#<%=CustomerGV.ClientID%>').click(function (e) {
+                        var isValid = true;
+                        $('input[type="text"]').each(function () {
+                            if ($.trim($(this).val()) == '') {
+                                isValid = false;
+                                $(this).css({
+                                    "border": "3px solid red"
+                                });
+                            }
+                            else {
+                                $(this).css({
+                                    "border": "3px solid green"
+                                });
+                            }
+                        });
+                        if (isValid == false)
+                            e.preventDefault();
+                    });
+                });
+            </script>
             </div>         
 </asp:Content>

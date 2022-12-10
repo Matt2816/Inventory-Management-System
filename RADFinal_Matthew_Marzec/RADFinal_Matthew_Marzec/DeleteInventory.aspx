@@ -36,6 +36,21 @@
                 </div>
             </div>
 </div>
+        <asp:GridView ID="DeleteInvGV" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="DeleteInvODS">
+            <Columns>
+                <asp:BoundField DataField="prodName" HeaderText="Name" SortExpression="prodName" />
+                <asp:BoundField DataField="prodDescription" HeaderText="Description" SortExpression="prodDescription" />
+                <asp:BoundField DataField="prodBrand" HeaderText="Brand" SortExpression="prodBrand" />
+                <asp:BoundField DataField="invQuantity" HeaderText="Inventory Qty" SortExpression="invQuantity" />
+                <asp:BoundField DataField="invPrice" HeaderText="Price" SortExpression="invPrice" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+            </Columns>
+        </asp:GridView>
+        <asp:ObjectDataSource ID="DeleteInvODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.InventoryDataSetTableAdapters.InventoryDetailTableAdapter">
+            <SelectParameters>
+                <asp:QueryStringParameter DefaultValue="" Name="InventoryID" QueryStringField="ID" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
         <asp:Button ID="DeleteRecord_Btn" runat="server" OnClick="DeleteRecord_Btn_Click" Text="Delete Record" Class="btn btn-danger" />
     </div>
 </asp:Content>

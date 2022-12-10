@@ -4,12 +4,10 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         <%: Title %>.</h2>
-        <asp:Button ID="AddInventoryBtn" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" />
-    <p>
-        <asp:TextBox ID="prodNameTxt" runat="server"></asp:TextBox>
-        <asp:Button ID="InventorySearchBtn" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" />
-        <asp:CheckBox ID="LowInvCheckBox" runat="server" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock" />
-    </p>
+        <asp:Button ID="AddInventoryBtn" class="btn btn-info btn-sm" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" /><br />
+        <asp:TextBox ID="prodNameTxt" class="form-control" runat="server"></asp:TextBox>
+        <asp:Button ID="InventorySearchBtn" class="btn btn-info btn-sm" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" /><br />
+        <asp:CheckBox ID="LowInvCheckBox" runat="server" class="checkbox" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock" />
     <asp:Panel ID="pnlResults" runat="server">
             <div class="col-xs-12">
                 <div class="form-group">

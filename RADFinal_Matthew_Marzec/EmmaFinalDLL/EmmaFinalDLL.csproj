@@ -74,6 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Orders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Orders.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -114,6 +119,17 @@
     </None>
     <None Include="InventoryDataSet.xss">
       <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Orders.xsc">
+      <DependentUpon>Orders.xsd</DependentUpon>
+    </None>
+    <None Include="Orders.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Orders.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Orders.xss">
+      <DependentUpon>Orders.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

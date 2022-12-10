@@ -11,61 +11,79 @@ namespace RADFinal_Matthew_Marzec
 {
 
 
-    public partial class DeleteInventory
+    public partial class Orders
     {
 
         /// <summary>
-        /// successPanel control.
+        /// lblOrderResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel successPanel;
+        protected global::System.Web.UI.WebControls.Label lblOrderResults;
 
         /// <summary>
-        /// failedPanel control.
+        /// txtFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel failedPanel;
+        protected global::System.Web.UI.WebControls.TextBox txtFilter;
 
         /// <summary>
-        /// DeleteRecordConfirmBtn control.
+        /// btnFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteRecordConfirmBtn;
+        protected global::System.Web.UI.WebControls.Button btnFilter;
 
         /// <summary>
-        /// DeleteInvGV control.
+        /// OrderInfoGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DeleteInvGV;
+        protected global::System.Web.UI.WebControls.GridView OrderInfoGV;
 
         /// <summary>
-        /// DeleteInvODS control.
+        /// OrdersODS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource DeleteInvODS;
+        protected global::System.Web.UI.WebControls.ObjectDataSource OrdersODS;
 
         /// <summary>
-        /// DeleteRecord_Btn control.
+        /// InvDetailsLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteRecord_Btn;
+        protected global::System.Web.UI.WebControls.Label InvDetailsLbl;
+
+        /// <summary>
+        /// InvDetailsGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView InvDetailsGV;
+
+        /// <summary>
+        /// InventoryDetailsODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource InventoryDetailsODS;
     }
 }

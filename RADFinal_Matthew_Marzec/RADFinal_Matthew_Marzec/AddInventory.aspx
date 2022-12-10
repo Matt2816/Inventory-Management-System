@@ -73,6 +73,6 @@
                 </div>
             </div>
         </div>
-        <asp:Button ID="AddRecord_Btn" ClientIDMode="Static" runat="server" Text="Add Record" Class="btn btn-primary" OnClick="AddRecord_Btn_Click" />
+        <asp:Button ID="AddRecord_Btn" ClientIDMode="Static" runat="server" Text="Add Record" class="btn btn-info btn-sm" OnClick="AddRecord_Btn_Click" />
     </div>
 </asp:Content>
