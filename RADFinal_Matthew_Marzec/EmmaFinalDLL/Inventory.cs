@@ -1,4 +1,7 @@
-﻿using Dapper;
+﻿//MATTHEW MARZEC
+//RAD FINAL 2022
+//DEC 10, 2022
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,7 +43,6 @@ namespace EmmaFinalDLL
         {
            
         }
-
         public int InvQty
         {
             get { return this.invQuantity; }
@@ -63,7 +65,6 @@ namespace EmmaFinalDLL
                 }
             }
         }
-
         public string InvMeasure
         {
             get { return this.invMeasure; }
@@ -86,7 +87,6 @@ namespace EmmaFinalDLL
                 }
             }
         }
-
         public int ProductID
         {
             get { return this.productID; }

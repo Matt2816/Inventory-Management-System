@@ -4,10 +4,11 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         <%: Title %>.</h2>
-        <asp:Button ID="AddInventoryBtn" class="btn btn-info btn-sm" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" /><br />
-        <asp:TextBox ID="prodNameTxt" class="form-control" runat="server"></asp:TextBox>
-        <asp:Button ID="InventorySearchBtn" class="btn btn-info btn-sm" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" /><br />
-        <asp:CheckBox ID="LowInvCheckBox" runat="server" class="checkbox" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock" />
+        <asp:Button ID="AddInventoryBtn" class="btn btn-info btn-sm" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" /><br /><br />
+        <asp:Label runat="server" Text="Filter Inventory by Name, Brand, and Qty:" Font-Bold="true"></asp:Label><br/>
+        <asp:TextBox ID="prodNameTxt" class="form-control" runat="server"></asp:TextBox><br />
+        <asp:Button ID="InventorySearchBtn" class="btn btn-info btn-sm" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" /><br /><br />
+        <asp:CheckBox ID="LowInvCheckBox" runat="server" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock (<10)" /><br /><br />
     <asp:Panel ID="pnlResults" runat="server">
             <div class="col-xs-12">
                 <div class="form-group">

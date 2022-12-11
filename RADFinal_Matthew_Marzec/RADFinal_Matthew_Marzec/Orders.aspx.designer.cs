@@ -15,6 +15,15 @@ namespace RADFinal_Matthew_Marzec
     {
 
         /// <summary>
+        /// AddOrderBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddOrderBtn;
+
+        /// <summary>
         /// lblOrderResults control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,33 @@ namespace RADFinal_Matthew_Marzec
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource OrdersODS;
+
+        /// <summary>
+        /// OrderStatuslbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label OrderStatuslbl;
+
+        /// <summary>
+        /// PaymentGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PaymentGV;
+
+        /// <summary>
+        /// PaymentODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource PaymentODS;
 
         /// <summary>
         /// InvDetailsLbl control.

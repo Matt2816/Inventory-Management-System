@@ -18,9 +18,9 @@
                 <strong>Failed to insert record. Please try again or contact your system admin</strong>
             </div>
         </asp:Panel>
-            <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label><br />
-        <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server" />
-              <asp:Button id="btnFilter" class="btn btn-info btn-sm" runat="server" text="Search" />
+            <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label>
+        <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server" /><br />
+              <asp:Button id="btnFilter" class="btn btn-info btn-sm" runat="server" text="Search" /><br /><br />
                 <asp:GridView ID="CustomerGV" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="CustomerODS" Width="1858px" OnRowUpdated="CustomerGV_RowUpdated">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />

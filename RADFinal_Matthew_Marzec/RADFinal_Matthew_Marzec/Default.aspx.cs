@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNet.Identity;
+﻿//MATTHEW MARZEC
+//RAD FINAL 2022
+//DEC 10, 2022
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -35,7 +38,7 @@ namespace RADFinal_Matthew_Marzec
                 authenticationManager.SignIn(userIdentity);
                 Label1.Text = user.UserName;
 
-                Response.Redirect("~/Contact.aspx?User=" + loginName.Text);
+                Response.Redirect("~/Inventory.aspx");
             }
         }
 

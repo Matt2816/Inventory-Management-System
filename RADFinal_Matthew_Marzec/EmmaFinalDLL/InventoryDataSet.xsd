@@ -183,6 +183,25 @@ WHERE        (inventory.id = @InventoryID)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InventoryDDLTableAdapter" GeneratorDataComponentClassName="InventoryDDLTableAdapter" Name="InventoryDDL" UserDataComponentName="InventoryDDLTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        product.prodName, inventory.id
+FROM            inventory INNER JOIN
+                         product ON inventory.productID = product.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="prodName" DataSetColumn="prodName" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -269,7 +288,37 @@ WHERE        (inventory.id = @InventoryID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InventoryDetail" msprop:Generator_RowEvHandlerName="InventoryDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="InventoryDetailRowDeleted" msprop:Generator_RowDeletingName="InventoryDetailRowDeleting" msprop:Generator_RowEvArgName="InventoryDetailRowChangeEvent" msprop:Generator_TablePropName="InventoryDetail" msprop:Generator_RowChangedName="InventoryDetailRowChanged" msprop:Generator_RowChangingName="InventoryDetailRowChanging" msprop:Generator_TableClassName="InventoryDetailDataTable" msprop:Generator_RowClassName="InventoryDetailRow" msprop:Generator_TableVarName="tableInventoryDetail" msprop:Generator_UserTableName="InventoryDetail">
+        <xs:element name="InventoryDetail" msprop:Generator_RowClassName="InventoryDetailRow" msprop:Generator_RowEvHandlerName="InventoryDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="InventoryDetailRowDeleted" msprop:Generator_RowDeletingName="InventoryDetailRowDeleting" msprop:Generator_RowEvArgName="InventoryDetailRowChangeEvent" msprop:Generator_TablePropName="InventoryDetail" msprop:Generator_RowChangedName="InventoryDetailRowChanged" msprop:Generator_UserTableName="InventoryDetail" msprop:Generator_RowChangingName="InventoryDetailRowChanging" msprop:Generator_TableClassName="InventoryDetailDataTable" msprop:Generator_TableVarName="tableInventoryDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="prodName" msprop:Generator_UserColumnName="prodName" msprop:Generator_ColumnPropNameInTable="prodNameColumn" msprop:Generator_ColumnPropNameInRow="prodName" msprop:Generator_ColumnVarNameInTable="columnprodName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prodDescription" msprop:Generator_UserColumnName="prodDescription" msprop:Generator_ColumnPropNameInTable="prodDescriptionColumn" msprop:Generator_ColumnPropNameInRow="prodDescription" msprop:Generator_ColumnVarNameInTable="columnprodDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prodBrand" msprop:Generator_UserColumnName="prodBrand" msprop:Generator_ColumnPropNameInTable="prodBrandColumn" msprop:Generator_ColumnPropNameInRow="prodBrand" msprop:Generator_ColumnVarNameInTable="columnprodBrand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="invQuantity" msprop:Generator_UserColumnName="invQuantity" msprop:Generator_ColumnPropNameInTable="invQuantityColumn" msprop:Generator_ColumnPropNameInRow="invQuantity" msprop:Generator_ColumnVarNameInTable="columninvQuantity" type="xs:int" minOccurs="0" />
+              <xs:element name="invPrice" msprop:Generator_UserColumnName="invPrice" msprop:Generator_ColumnPropNameInTable="invPriceColumn" msprop:Generator_ColumnPropNameInRow="invPrice" msprop:Generator_ColumnVarNameInTable="columninvPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InventoryDDL" msprop:Generator_RowEvHandlerName="InventoryDDLRowChangeEventHandler" msprop:Generator_RowDeletedName="InventoryDDLRowDeleted" msprop:Generator_RowDeletingName="InventoryDDLRowDeleting" msprop:Generator_RowEvArgName="InventoryDDLRowChangeEvent" msprop:Generator_TablePropName="InventoryDDL" msprop:Generator_RowChangedName="InventoryDDLRowChanged" msprop:Generator_RowChangingName="InventoryDDLRowChanging" msprop:Generator_TableClassName="InventoryDDLDataTable" msprop:Generator_RowClassName="InventoryDDLRow" msprop:Generator_TableVarName="tableInventoryDDL" msprop:Generator_UserTableName="InventoryDDL">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="prodName" msprop:Generator_ColumnPropNameInRow="prodName" msprop:Generator_ColumnPropNameInTable="prodNameColumn" msprop:Generator_ColumnVarNameInTable="columnprodName" msprop:Generator_UserColumnName="prodName" minOccurs="0">
@@ -279,22 +328,6 @@ WHERE        (inventory.id = @InventoryID)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="prodDescription" msprop:Generator_ColumnPropNameInRow="prodDescription" msprop:Generator_ColumnPropNameInTable="prodDescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnprodDescription" msprop:Generator_UserColumnName="prodDescription" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="prodBrand" msprop:Generator_ColumnPropNameInRow="prodBrand" msprop:Generator_ColumnPropNameInTable="prodBrandColumn" msprop:Generator_ColumnVarNameInTable="columnprodBrand" msprop:Generator_UserColumnName="prodBrand" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="invQuantity" msprop:Generator_ColumnPropNameInRow="invQuantity" msprop:Generator_ColumnPropNameInTable="invQuantityColumn" msprop:Generator_ColumnVarNameInTable="columninvQuantity" msprop:Generator_UserColumnName="invQuantity" type="xs:int" minOccurs="0" />
-              <xs:element name="invPrice" msprop:Generator_ColumnPropNameInRow="invPrice" msprop:Generator_ColumnPropNameInTable="invPriceColumn" msprop:Generator_ColumnVarNameInTable="columninvPrice" msprop:Generator_UserColumnName="invPrice" type="xs:decimal" minOccurs="0" />
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
@@ -315,6 +348,10 @@ WHERE        (inventory.id = @InventoryID)</CommandText>
     </xs:unique>
     <xs:unique name="InventoryDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:InventoryDetail" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="InventoryDDL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InventoryDDL" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>

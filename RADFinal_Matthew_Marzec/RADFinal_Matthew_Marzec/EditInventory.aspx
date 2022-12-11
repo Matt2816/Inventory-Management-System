@@ -72,7 +72,7 @@
                     <asp:TextBox class="form-control" ID="txtProdBrand" runat="server"></asp:TextBox>
                 </div>
             </div>
-        </div>
+        </div><br />
         <asp:Button ID="UpdateRecord_Btn" runat="server" ClientIDMode="Static" OnClick="UpdateRecord_Btn_Click" Text="Update Record" class="btn btn-info btn-sm" />
     </div>
 </asp:Content>

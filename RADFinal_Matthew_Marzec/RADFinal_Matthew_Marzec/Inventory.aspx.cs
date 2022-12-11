@@ -1,4 +1,7 @@
-﻿using EmmaFinalDLL;
+﻿//MATTHEW MARZEC
+//RAD FINAL 2022
+//DEC 10, 2022
+using EmmaFinalDLL;
 using EmmaFinalDLL.InventoryDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
@@ -19,6 +22,9 @@ namespace RADFinal_Matthew_Marzec
      
         protected void Page_Load(object sender, EventArgs e)
         {
+            LinkButton LogOutBtn = this.Master.FindControl("LogoutBtn") as LinkButton;
+            LogOutBtn.Visible = true;
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
             dsInventory = new InventoryDataSet();
 
             InventoryTableAdapter daInventory = new InventoryTableAdapter();

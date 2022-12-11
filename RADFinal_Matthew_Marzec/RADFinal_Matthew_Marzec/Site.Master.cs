@@ -13,5 +13,10 @@ namespace RADFinal_Matthew_Marzec
         {
 
         }
+
+        protected void LogOut(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }
