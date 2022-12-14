@@ -33,6 +33,15 @@ namespace RADFinal_Matthew_Marzec
         protected global::System.Web.UI.WebControls.Panel failedPanel;
 
         /// <summary>
+        /// AddCustomerBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddCustomerBtn;
+
+        /// <summary>
         /// lblCustomerResults control.
         /// </summary>
         /// <remarks>

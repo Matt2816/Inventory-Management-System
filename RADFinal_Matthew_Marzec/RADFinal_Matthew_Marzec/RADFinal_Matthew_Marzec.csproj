@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCustomer.aspx" />
     <Content Include="AddInventory.aspx" />
     <Content Include="AddOrder.aspx" />
     <Content Include="App_Data\Emmas.mdf" />
@@ -209,6 +210,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomer.aspx.cs">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCustomer.aspx.designer.cs">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddInventory.aspx.cs">
       <DependentUpon>AddInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

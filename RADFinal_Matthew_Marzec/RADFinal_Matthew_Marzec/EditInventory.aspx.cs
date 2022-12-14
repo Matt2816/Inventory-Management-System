@@ -20,14 +20,11 @@ namespace RADFinal_Matthew_Marzec
     public partial class EditInventory : System.Web.UI.Page
     {
         private static InventoryDataSet dsInventory;
-        private static DataRow[] InventoryData;
-        public int ID = 0;
+        new int ID = 0;
         static EditInventory()
         {
             dsInventory = new InventoryDataSet();
-            EditInventoryTableAdapter daEditInventory = new EditInventoryTableAdapter();
             InventoryTableAdapter daInventory = new InventoryTableAdapter();
-
             try
             {
                 daInventory.Fill(dsInventory.Inventory);

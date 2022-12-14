@@ -43,7 +43,6 @@
             </div>
         </asp:Panel>
         <div class="row">
-            
             <div class="col-sm-4">
                 <div class="form-outline">
                      <label class="form-label" for="prodName">Select a Product to Order</label>
@@ -55,12 +54,14 @@
                 <div class="form-outline">
                    <label class="form-label" for="prodQtyOrder">Qty to Order</label>
                     <asp:TextBox class="form-control" ID="txtQtyOrder" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" Style="font-size: 15px" runat="server" ControlToValidate="txtQtyOrder" ErrorMessage="Order qty is required" ForeColor="Red"></asp:RequiredFieldValidator><br />
                 </div>
             </div>       
              <div class="col-sm-4">
                 <div class="form-outline">
                      <label class="form-label" for="prodSupplierPrice">Supplier Price</label>
                     <asp:TextBox class="form-control" ID="txtSupplierPrice" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Style="font-size: 15px" runat="server" ControlToValidate="txtSupplierPrice" ErrorMessage="Supplier price is required" ForeColor="Red"></asp:RequiredFieldValidator><br />
                 </div>
             </div>       
         </div>

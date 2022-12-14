@@ -2,12 +2,12 @@
 <%@ Page Title="Inventory" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="RADFinal_Matthew_Marzec.Inventory" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>
-        <%: Title %>.</h2>
+    <h2>Welcome <asp:LoginName ID="LoginName" style='text-transform:uppercase'  runat="server" /></h2>
         <asp:Button ID="AddInventoryBtn" class="btn btn-info btn-sm" runat="server" Text="Add Inventory" OnClick="AddInventoryBtn_Click" /><br /><br />
         <asp:Label runat="server" Text="Filter Inventory by Name, Brand, and Qty:" Font-Bold="true"></asp:Label><br/>
-        <asp:TextBox ID="prodNameTxt" class="form-control" runat="server"></asp:TextBox><br />
-        <asp:Button ID="InventorySearchBtn" class="btn btn-info btn-sm" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" /><br /><br />
+        <asp:TextBox ID="prodNameTxt" class="form-control" runat="server"></asp:TextBox>
+        <asp:Button ID="InventorySearchBtn" class="btn btn-info btn-sm" runat="server" Text="Search" OnClick="InventorySearchBtn_Click" /><br />
+        <br /><br />
         <asp:CheckBox ID="LowInvCheckBox" runat="server" OnCheckedChanged="LowInvCheckBox_CheckedChanged" AutoPostBack="true" Text="Low Stock (<10)" /><br /><br />
     <asp:Panel ID="pnlResults" runat="server">
             <div class="col-xs-12">

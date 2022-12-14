@@ -18,6 +18,7 @@
                 <strong>Failed to insert record. Please try again or contact your system admin</strong>
             </div>
         </asp:Panel>
+            <asp:Button id="AddCustomerBtn" class="btn btn-info btn-sm" runat="server" text="Add Customer" OnClick="AddCustomerBtn_Click" /><br /><br />
             <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label>
         <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server" /><br />
               <asp:Button id="btnFilter" class="btn btn-info btn-sm" runat="server" text="Search" /><br /><br />

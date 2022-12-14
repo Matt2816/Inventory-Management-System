@@ -43,5 +43,10 @@ namespace RADFinal_Matthew_Marzec
 
             }
         }
+
+        protected void AddCustomerBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddCustomer.aspx");
+        }
     }
 }

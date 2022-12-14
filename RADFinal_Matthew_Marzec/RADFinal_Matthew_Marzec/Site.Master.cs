@@ -16,7 +16,13 @@ namespace RADFinal_Matthew_Marzec
 
         protected void LogOut(object sender, EventArgs e)
         {
+            if(LogoutBtn.Text != "Logout")
+            {
+                var auth = HttpContext.Current.GetOwinContext().Authentication;
+                auth.SignOut();
+            }
             Response.Redirect("Default.aspx");
+
         }
     }
 }
