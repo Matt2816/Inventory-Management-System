@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="Orders" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="RADFinal_Matthew_Marzec.Orders" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <p>&nbsp;</p>
-    <asp:Button ID="AddOrderBtn" class="btn btn-info btn-sm" runat="server" Text="Add Order" OnClick="AddOrderBtn_Click" /><br/>
+    <h2>Orders Manager</h2>
+    <asp:Button ID="AddOrderBtn" class="btn btn-info btn-sm" runat="server" Text="Add Order" OnClick="AddOrderBtn_Click" /><br/><br/>
     <asp:Label ID="lblOrderResults" runat="server" Text="Filter Order by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label><br/>
-    <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server"/>  <asp:Button ID="btnFilter" class="btn btn-info btn-sm" runat="server" Text="Search" /><br /><br/>
+    <asp:TextBox Type="null" ID="txtFilter" class="form-control" style="display:inline" runat="server"/>
+    <asp:Button ID="btnFilter" class="btn btn-info btn-sm" runat="server" style="margin-left:25px" Text="Search" /><br /><br/>
   
     <asp:GridView ID="OrderInfoGV" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OrdersODS" OnSelectedIndexChanged="OrderInfoGV_SelectedIndexChanged">
         <Columns>

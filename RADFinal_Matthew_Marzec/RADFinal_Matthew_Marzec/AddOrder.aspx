@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Add Order" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddOrder.aspx.cs" Inherits="RADFinal_Matthew_Marzec.AddOrder" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <p>&nbsp;</p>
+    <h2>Create a new Order</h2>
     <div class="container">
        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8">
             </script>

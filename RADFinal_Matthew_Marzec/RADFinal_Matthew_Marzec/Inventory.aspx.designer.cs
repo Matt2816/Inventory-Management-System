@@ -51,13 +51,22 @@ namespace RADFinal_Matthew_Marzec
         protected global::System.Web.UI.WebControls.Button InventorySearchBtn;
 
         /// <summary>
-        /// LowInvCheckBox control.
+        /// InvQtyFilterDDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox LowInvCheckBox;
+        protected global::System.Web.UI.WebControls.DropDownList InvQtyFilterDDL;
+
+        /// <summary>
+        /// FilterClearBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FilterClearBtn;
 
         /// <summary>
         /// pnlResults control.

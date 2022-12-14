@@ -3,6 +3,7 @@
 //DEC 10, 2022
 using EmmaFinalDLL;
 using EmmaFinalDLL.InventoryDataSetTableAdapters;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,10 +37,14 @@ namespace RADFinal_Matthew_Marzec
             catch { }
             
             if (!User.Identity.IsAuthenticated) Response.Redirect("~/Default.aspx");
-            var search = from inventory in dsInventory.Inventory
-                          orderby inventory.prodName
-                          select inventory;
-            DisplayTable(search);
+            if (!IsPostBack)
+            {
+                var search = from inventory in dsInventory.Inventory
+                              orderby inventory.prodName
+                              select inventory;
+                DisplayTable(search);
+            }
+
         }
        
         public void DisplayTable(IEnumerable<DataRow> search)
@@ -96,32 +101,60 @@ namespace RADFinal_Matthew_Marzec
             if(prodNameTxt.Text.Length > 0)
             {
                 var search = from inventory in dsInventory.Inventory
-                             where inventory.prodName.ToUpper().Contains(prodNameTxt.Text.ToUpper())
+                             where inventory.prodName.ToUpper().Contains(prodNameTxt.Text.ToUpper()) || inventory.prodBrand.ToUpper().Contains(prodNameTxt.Text.ToUpper())
                              orderby inventory.prodName
                              select inventory;
                 this.tblInventory.Rows.Clear();
                 DisplayTable(search);
             }
-        }
-
-        protected void LowInvCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if(LowInvCheckBox.Checked)
-            {
-                var search = from inventory in dsInventory.Inventory
-                             where inventory.invQuantity <= 10
-                             orderby inventory.prodName
-                             select inventory;
-                this.tblInventory.Rows.Clear();
-                DisplayTable(search);
-            }
-           
         }
 
         protected void AddInventoryBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/AddInventory.aspx");
+        }
+
+        protected void FilterClearBtn_Click(object sender, EventArgs e)
+        {
+            var search = from inventory in dsInventory.Inventory
+                         orderby inventory.prodName
+                         select inventory;
+            DisplayTable(search);
+        }
+
+        protected void InvQtyFilterDDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (InvQtyFilterDDL.SelectedValue)
+            {
+                case "In Stock (<10)":
+                    var searchTen = from inventory in dsInventory.Inventory
+                                    where inventory.invQuantity <= 10
+                                    orderby inventory.prodName
+                                    select inventory;
+                    DisplayTable(searchTen);
+                    break;
+                case "In Stock (<50)":
+                    var search50 = from inventory in dsInventory.Inventory
+                                    where inventory.invQuantity <= 50
+                                    orderby inventory.prodName
+                                    select inventory;
+                    DisplayTable(search50);
+                    break;
+                case "In Stock (>100)":
+                    var search = from inventory in dsInventory.Inventory
+                                    where inventory.invQuantity >= 100
+                                    orderby inventory.prodName
+                                    select inventory;
+                    DisplayTable(search);
+                    break;
+                case "Out of Stock":
+                    var OutofStock = from inventory in dsInventory.Inventory
+                                 where inventory.invQuantity == 0
+                                 orderby inventory.prodName
+                                 select inventory;
+                    DisplayTable(OutofStock);
+                    break;
+            }
         }
     }
 }

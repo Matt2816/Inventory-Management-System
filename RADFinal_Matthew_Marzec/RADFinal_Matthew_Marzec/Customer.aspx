@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="Customer" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="RADFinal_Matthew_Marzec.Customer" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <p>&nbsp;</p>
+    <h2>Customer Manager</h2>
     <div class="container">
         <asp:Panel ID="successPanel" Visible="false"  runat="server">
-
             <div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Record successfully added.</strong> <a href="Inventory.aspx" class="alert-link">Return to inventory</a>.
@@ -19,9 +17,9 @@
             </div>
         </asp:Panel>
             <asp:Button id="AddCustomerBtn" class="btn btn-info btn-sm" runat="server" text="Add Customer" OnClick="AddCustomerBtn_Click" /><br /><br />
-            <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label>
-        <asp:TextBox Type="null" ID="txtFilter" class="form-control" runat="server" /><br />
-              <asp:Button id="btnFilter" class="btn btn-info btn-sm" runat="server" text="Search" /><br /><br />
+            <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label><br />
+        <asp:TextBox Type="null" ID="txtFilter" style="display: inline" class="form-control" runat="server" />
+              <asp:Button id="btnFilter" class="btn btn-info btn-sm" style="margin-left: 25px" runat="server" text="Search" /><br /><br />
                 <asp:GridView ID="CustomerGV" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="CustomerODS" Width="1858px" OnRowUpdated="CustomerGV_RowUpdated">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />

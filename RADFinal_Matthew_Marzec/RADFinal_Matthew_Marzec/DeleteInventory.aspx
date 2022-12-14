@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Delete Record" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DeleteInventory.aspx.cs" Inherits="RADFinal_Matthew_Marzec.DeleteInventory" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <p>&nbsp;</p>
+    <h2>Delete The Selected Record</h2>
     <div class="container">
         <asp:Panel ID="successPanel" Visible="false" runat="server">
 

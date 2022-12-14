@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Add Inventory" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddInventory.aspx.cs" Inherits="RADFinal_Matthew_Marzec.AddInventory" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <p>&nbsp;</p>
+    <h2>Add Item To Inventory</h2>
     <div class="container">
 
         <asp:Panel ID="successPanel" Visible="false" runat="server">
