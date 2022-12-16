@@ -69,6 +69,15 @@ namespace RADFinal_Matthew_Marzec
         protected global::System.Web.UI.WebControls.Button btnFilter;
 
         /// <summary>
+        /// lblCustomerResults0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerResults0;
+
+        /// <summary>
         /// CustomerGV control.
         /// </summary>
         /// <remarks>
@@ -85,5 +94,59 @@ namespace RADFinal_Matthew_Marzec
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource CustomerODS;
+
+        /// <summary>
+        /// EditOrderGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView EditOrderGV;
+
+        /// <summary>
+        /// EditOrderODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource EditOrderODS;
+
+        /// <summary>
+        /// OrderDetailsGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView OrderDetailsGV;
+
+        /// <summary>
+        /// EmployeeODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource EmployeeODS;
+
+        /// <summary>
+        /// PaymentODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource PaymentODS;
+
+        /// <summary>
+        /// OrderDetailsODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource OrderDetailsODS;
     }
 }

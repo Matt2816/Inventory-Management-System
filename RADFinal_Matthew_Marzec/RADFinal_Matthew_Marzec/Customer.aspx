@@ -19,10 +19,12 @@
             <asp:Button id="AddCustomerBtn" class="btn btn-info btn-sm" runat="server" text="Add Customer" OnClick="AddCustomerBtn_Click" /><br /><br />
             <asp:Label ID="lblCustomerResults" runat="server" Text="Filter customers by Name, Email, and Phone Number:" Font-Bold="true"></asp:Label><br />
         <asp:TextBox Type="null" ID="txtFilter" style="display: inline" class="form-control" runat="server" />
-              <asp:Button id="btnFilter" class="btn btn-info btn-sm" style="margin-left: 25px" runat="server" text="Search" /><br /><br />
+              <asp:Button id="btnFilter" class="btn btn-info btn-sm" style="margin-left: 25px" runat="server" text="Search" /><br />
+        <br />
+            <asp:Label ID="lblCustomerResults0" runat="server" Text="Select a customer to view there orders" Font-Bold="true"></asp:Label><br /><br />
                 <asp:GridView ID="CustomerGV" runat="server" AllowPaging="True" AllowSorting="True" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="CustomerODS" Width="1858px" OnRowUpdated="CustomerGV_RowUpdated">
                     <Columns>
-                        <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
                         <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
                         <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
                         <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
@@ -62,8 +64,7 @@
                         <asp:Parameter Name="Original_id" Type="Int32" />
                     </UpdateParameters>
                 </asp:ObjectDataSource>  
-                          <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8">
-            </script>
+                          <br />
             <script>
                 $(document).ready(function () {
                     $('#<%=CustomerGV.ClientID%>').click(function (e) {
@@ -86,5 +87,79 @@
                     });
                 });
             </script>
-            </div>         
+            <asp:GridView ID="EditOrderGV" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="EditOrderODS">
+                <Columns>
+                    <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:BoundField DataField="ordNumber" HeaderText="Order #" ReadOnly="True" SortExpression="ordNumber" />
+                    <asp:BoundField DataField="ordDate" DataFormatString="{0:D}" HeaderText="Date" SortExpression="ordDate" />
+                    <asp:CheckBoxField DataField="ordPaid" HeaderText="Paid" SortExpression="ordPaid" />
+                    <asp:TemplateField HeaderText="Payment Type" SortExpression="paymentID">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="PaymentODS" DataTextField="payType" DataValueField="id">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="PaymentODS" DataTextField="payType" DataValueField="id" Enabled="False">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Employee" SortExpression="empID">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="EmployeeODS" DataTextField="FullName" DataValueField="id">
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="EmployeeODS" DataTextField="FullName" DataValueField="id" Enabled="False">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+        </asp:GridView>
+        <br />
+        <asp:ObjectDataSource ID="EditOrderODS" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.CustomerReceiptTableAdapter" UpdateMethod="Update">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="ordNumber" Type="String" />
+                <asp:Parameter Name="ordDate" Type="DateTime" />
+                <asp:Parameter Name="ordPaid" Type="Boolean" />
+                <asp:Parameter Name="paymentID" Type="Int32" />
+                <asp:Parameter Name="custID" Type="Int32" />
+                <asp:Parameter Name="empID" Type="Int32" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="CustomerGV" Name="custID" PropertyName="SelectedValue" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="ordNumber" Type="String" />
+                <asp:Parameter Name="ordDate" Type="DateTime" />
+                <asp:Parameter Name="ordPaid" Type="Boolean" />
+                <asp:Parameter Name="paymentID" Type="Int32" />
+                <asp:Parameter Name="custID" Type="Int32" />
+                <asp:Parameter Name="empID" Type="Int32" />
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
+            <br />
+        <asp:GridView ID="OrderDetailsGV" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OrderDetailsODS" FooterStyle-BackColor="White" OnRowDataBound="OrderDetailsGV_RowDataBound" ShowFooter="True">
+            <Columns>
+                <asp:BoundField DataField="prodName" HeaderText="Product" SortExpression="prodName" />
+                <asp:BoundField DataField="orlQuantity" HeaderText="Qty" SortExpression="orlQuantity" />
+                <asp:BoundField DataField="orlPrice" HeaderText="Price" SortExpression="orlPrice" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="total" HeaderText="Total" SortExpression="total" DataFormatString="{0:C}" ReadOnly="True" />
+            </Columns>
+
+<FooterStyle BackColor="White"></FooterStyle>
+        </asp:GridView>
+        <br />
+        <asp:ObjectDataSource ID="EmployeeODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.EmployeeTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="PaymentODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.PaymentTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="OrderDetailsODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EmmaFinalDLL.CustomerDataSetTableAdapters.OrderDetailsTableAdapter">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="EditOrderGV" Name="ID" PropertyName="SelectedValue" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+            </div>   
+            
 </asp:Content>

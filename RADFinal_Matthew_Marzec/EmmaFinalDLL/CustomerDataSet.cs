@@ -5,5 +5,12 @@ namespace EmmaFinalDLL
 {
     partial class CustomerDataSet
     {
+        partial class EmployeeDataTable
+        {
+        }
+
+        partial class CustomerReceiptDataTable
+        {
+        }
     }
 }
